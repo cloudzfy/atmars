@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Welcome to M@rs weibo</string>
+    <string name="app_name">Marsweibo</string>
+    <string name="account">用户名</string>
+    <string name="password">123456</string>
+    <string name="submit">登录</string>
+    <string name="bluebutton">#483d8b</string>
+    <string name="buttontextgray">#d3d3d3</string>
+	<string name="send">发布</string>
+</resources>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/marsdb?charset=utf-8">
+		</property>
+		<property name="username" value="root"></property>
+		<property name="password" value="1234"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">
+					true
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>org/atmars/dao/User.hbm.xml</value>
+				<value>org/atmars/dao/Message.hbm.xml</value>
+				<value>org/atmars/dao/Favorite.hbm.xml</value>
+				<value>org/atmars/dao/Follow.hbm.xml</value>
+				<value>org/atmars/dao/Comment.hbm.xml</value>
+				<value>org/atmars/dao/Topic.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="UserDAO" class="org.atmars.dao.UserDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="MessageDAO" class="org.atmars.dao.MessageDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="FavoriteDAO" class="org.atmars.dao.FavoriteDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="FollowDAO" class="org.atmars.dao.FollowDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="CommentDAO" class="org.atmars.dao.CommentDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="TopicDAO" class="org.atmars.dao.TopicDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+
+	<bean id="userService" class="org.atmars.service.impls.UserServiceImpl">
+		<constructor-arg>
+			<ref bean="UserDAO" />
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="FollowDAO" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="messageService" class="org.atmars.service.impls.MessageServiceImpl">
+		<constructor-arg>
+			<ref bean="MessageDAO" />
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="UserDAO" />
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="CommentDAO" />
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="FavoriteDAO" />
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="TopicDAO" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="tcp://localhost:61616" />
+	</bean>
+
+	<bean id="destination" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="org.atmars.mailQueue" />
+	</bean>
+
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="connectionFactory" />
+	</bean>
+
+	<bean id="jmail" class="org.atmars.service.impls.Jmail">
+		<property name="jmsTemplate" ref="jmsTemplate"></property>
+		<property name="destination" ref="destination"></property>
+	</bean>
+
+	<bean id="mailServiceMdp" class="org.atmars.service.impls.MailServiceMdp"></bean>
+	
+	
+	<bean id="listnerContainer" class="org.springframework.jms.listener.SimpleMessageListenerContainer">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="destination" ref="destination"></property>
+		<property name="messageListener" ref="mailServiceMdp"></property>
+	</bean>
+</beans>

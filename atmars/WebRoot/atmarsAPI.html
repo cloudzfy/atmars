@@ -1,0 +1,429 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Mars Register</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background: #A1E0E9;
+	padding: 0;
+	color: #000;
+}
+
+/* ~~ Element/tag selectors ~~ */
+ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
+	padding-right: 15px;
+	padding-left: 15px; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
+}
+a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+	border: none;
+}
+
+/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+a:link {
+	color:#3C7CB3;
+	text-decoration: none; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+}
+a:visited {
+	color: #3C7CB3;
+	text-decoration: none;
+}
+a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+	text-decoration: underline;
+}
+
+/* ~~ this container surrounds all other divs giving them their percentage-based width ~~ */
+.container {
+	width: 60%;
+	max-width: 1260px;/* a max-width may be desirable to keep this layout from getting too wide on a large monitor. This keeps line length more readable. IE6 does not respect this declaration. */
+	min-width: 780px;/* a min-width may be desirable to keep this layout from getting too narrow. This keeps line length more readable in the side columns. IE6 does not respect this declaration. */
+	background:#FFF ;
+	margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout. It is not needed if you set the .container's width to 100%. */
+	background: #A1E0E9;
+	position:relative;
+	
+}
+
+/* ~~the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo~~ */
+.header {
+
+}
+
+
+/* ~~ This is the layout information. ~~ 
+
+1) Padding is only placed on the top and/or bottom of the div. The elements within this div have padding on their sides. This saves you from any "box model math". Keep in mind, if you add any side padding or border to the div itself, it will be added to the width you define to create the *total* width. You may also choose to remove the padding on the element in the div and place a second div within it with no width and the padding necessary for your design.
+
+*/
+.content {
+	padding: 10px 0;
+	border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.35);
+	background:#fff;
+}
+
+/* ~~ This grouped selector gives the lists in the .content area space ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* this padding mirrors the right padding in the headings and paragraph rule above. Padding was placed on the bottom for space between other elements on the lists and on the left to create the indention. These may be adjusted as you wish. */
+}
+
+/* ~~ The footer ~~ */
+.footer {
+	padding: 10px 0;
+	background: #D2F1F6;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.35);
+}
+
+/* ~~ miscellaneous float/clear classes ~~ */
+.fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the #footer is removed or taken out of the #container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+
+
+.container .register{
+	position:absolute;
+	top:0px;
+	left:-42px;
+	width: 920px;
+}
+
+.cloud {
+	width: 345px;
+	height: 171px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-image:url(register-img/cloud.png);
+	background-repeat-x: no-repeat;
+	background-repeat-y: no-repeat;
+	background-attachment: initial;
+	background-position-x: 100%;
+	background-position-y: 50%;
+	background-origin: initial;
+	background-clip: initial;
+	background-color: initial;
+	_background: none;
+    z-index: 2;
+}
+
+.container .filter{
+	position:absolute;
+	top:117px;
+	height:30px;
+	background:-webkit-gradient(linear, left top, left bottom, from(#ebfbfb), to(#fff));
+	width: 100%;
+	border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.api{
+	margin-top:50px;
+	margin-left:50px;
+	margin-right:50px;
+}
+
+.api table {
+	display: table;
+	border-collapse: collapse;
+	border-spacing: 0;
+	border:1px solid gray;
+}
+
+
+
+.api th {
+	background: #F3F4F5;
+	height: 29px;
+	font-weight: 700;
+	font-size: 14px;
+	text-align: left;
+	color: black;
+	border: 1px solid #E8EAEC;
+	vertical-align: middle;
+	padding: 0 10px;
+}
+
+
+
+.api td {
+	border: 1px solid #E8EAEC;
+	vertical-align: middle;
+	padding: 0 10px;
+	padding: 7px 10px;
+	line-height: 20px;
+	font-size:13px;
+}
+
+
+
+
+.apitable{
+	position:absolute;
+	z-index:0;
+}
+
+
+.parameter table {
+	display: table;
+	border-collapse: collapse;
+	border-spacing: 0;
+	border:1px solid gray;
+}
+
+.parameter{
+	padding:3px 3px 3px 3px;
+	position:absolute;
+	z-index:1;
+	background:#FFF;
+	border-radius:3px;
+	border:1px solid #E8EAEC;
+	display:none;
+}
+
+
+.parameter td {
+	border: 1px solid #E8EAEC;
+	vertical-align: middle;
+	padding: 0 10px;
+	padding: 2px 10px;
+	line-height: 12px;
+	font-size:10px;
+}
+
+.parametertitle{
+	float:left;
+	font-size:14px;
+	padding:6px 3px 6px 3px; 
+}
+
+.parameterclose{
+	float:right;
+}
+
+-->
+</style>
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.insertContent.js"></script>
+</head>
+
+<body>
+<div class="cloud"></div>
+<div class="container">
+  <div class="filter"></div>
+  <div class="header"> <img src="register-img/register.png" width="917" class="register"/>
+    <!-- end .header --></div>
+    
+  <div style="top:0; height:117px; background-color:#A1E0E9"></div>
+  <div class="content">
+    <div class="api">
+    <div style=" padding-top:20px; padding-bottom:16px; padding-left:5px; font-size:22px">API</div>
+    <table width="683" border="0" class="apitable">
+      <tr>
+        <th colspan="3">Atmars</th>
+      </tr>
+      <tr>
+        <td width="122" rowspan="2" style=" text-align:center;">Read Interface</td>
+        <td width="185"><a href="javascript:void(0)" onClick="loginapi()"> MobileLogin</a></td>
+        <script type="text/javascript">
+		    function loginapi(){
+				if($("#mobilelogin").css("display")=="block")
+				{
+					$("#mobilelogin").fadeOut(800);
+				}
+				else{
+					$("#mobilegetmymessage").css("display","none");
+					$("#mobilesendmessage").css("display","none");
+					$("#mobilelogin").fadeIn(800);
+				}
+				
+			}
+		</script>
+        <td width="354">Login and get user info from server.</td>
+      </tr>
+      <tr>
+        <td ><a href="javascript:void(0)" onClick="GetMyMessagesapi()">MobileGetMyMessages</a></td>
+        <script type="text/javascript">
+		    function GetMyMessagesapi(){
+				if($("#mobilegetmymessage").css("display")=="block")
+				{
+					$("#mobilegetmymessage").fadeOut(800);
+				}
+				else{
+					$("#mobilesendmessage").css("display","none");
+				    $("#mobilelogin").css("display","none");
+				    $("#mobilegetmymessage").fadeIn(800);
+				}
+			}
+		</script>
+        <td >Get user followings’ posts and mine, order by time desc.</td>
+      </tr>
+      <tr>
+        <td rowspan="1" style="text-align:center;">Write Interface</td>
+        <td ><a href="javascript:void(0)" onClick="SendMessageapi()">MobileSendMessage</a></td>
+        <script type="text/javascript">
+		    function SendMessageapi(){
+				if($("#mobilesendmessage").css("display")=="block")
+				{
+					$("#mobilesendmessage").fadeOut(800);
+				}
+				else{
+					$("#mobilegetmymessage").css("display","none");
+				    $("#mobilelogin").css("display","none");
+				    $("#mobilesendmessage").fadeIn(800);
+				}
+				
+			}
+		</script>
+        <td >Publish a post.</td>
+      </tr>
+    </table>
+    </div>
+    
+    <div id="mobilelogin" class="parameter" style=" margin-left:186px; margin-top:65px">
+      <div class="parametertitle">Request Parameter</div>
+      <img name="mobilelogin" class="parameterclose" src="atmarsAPI-img/close.png" onClick="closep(this.name)"/>
+      <script type="text/javascript">
+	     function closep(name){
+			 $("#"+name).fadeOut(800);
+		 }
+	  </script>
+      <div style="clear:right"></div>
+      <table width="480">
+        <tr bgcolor="#F3F4F5">
+           <td width="50">Parameter</td>
+           <td width="50">Optional</td>
+           <td width="50">Type</td>
+           <td width="230">Description</td>
+        </tr>
+        <tr>
+           <td >Email</td>
+           <td >False</td>
+           <td >String</td>
+           <td >Email for user login</td>
+        </tr>
+        <tr>
+           <td >Password</td>
+           <td >False</td>
+           <td >String </td>
+           <td >Password for user login</td>
+        </tr>
+      </table>
+      
+    </div>
+    
+    
+    <div id="mobilegetmymessage" class="parameter" style=" margin-left:186px; margin-top:120px">
+    <div class="parametertitle">Request Parameter</div>
+      <img name="mobilegetmymessage" class="parameterclose" src="atmarsAPI-img/close.png" onClick="closep(this.name)"/>
+      <div style="clear:right"></div>
+      <table width="480" >
+        <tr bgcolor="#F3F4F5">
+           <td width="50">Parameter</td>
+           <td width="50">Optional</td>
+           <td width="50">Type</td>
+           <td width="230">Description</td>
+        </tr>
+        <tr>
+           <td >userId</td>
+           <td >False</td>
+           <td >Int</td>
+           <td >Identifier of user, return by MobileLogin result json</td>
+        </tr>
+        <tr>
+           <td >Ticket</td>
+           <td >False</td>
+           <td >String </td>
+           <td >Authentication String of user, return by MobileLogin result json</td>
+        </tr>
+        <tr>
+           <td >OldestMessageId</td>
+           <td >True</td>
+           <td >Int </td>
+           <td >Find newest 10 posts if not given, Find 10 posts earlier than the id if  given </td>
+        </tr>
+      </table>
+    </div>
+    
+    
+    <div id="mobilesendmessage" class="parameter" style="margin-left:186px; margin-top:155px">
+    <div class="parametertitle">Request Parameter</div>
+      <img name="mobilesendmessage" class="parameterclose" src="atmarsAPI-img/close.png" onClick="closep(this.name)"/>
+      <div style="clear:right"></div>
+      <table width="480">
+        <tr bgcolor="#F3F4F5">
+           <td width="50">Parameter</td>
+           <td width="50">Optional</td>
+           <td width="50">Type</td>
+           <td width="230">Description</td>
+        </tr>
+        <tr>
+           <td >userId</td>
+           <td >False</td>
+           <td >Int</td>
+           <td >Identifier of user, return by MobileLogin result json</td>
+        </tr>
+        <tr>
+           <td >Ticket</td>
+           <td >False</td>
+           <td >String </td>
+           <td >Authentication String of user, return by MobileLogin result json</td>
+        </tr>
+        <tr>
+           <td >Text</td>
+           <td >False</td>
+           <td >String </td>
+           <td >Content of post</td>
+        </tr>
+        <tr>
+           <td >ForwardId</td>
+           <td >True</td>
+           <td >Int </td>
+           <td >The original post identifier if forward a post instead of post an original message in which situation the parameter of text will be the forward message of the original post</td>
+        </tr>
+      </table>
+      </div>
+    
+    <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+
+    
+    <table width="780" height="200" border="0" background="register-img/image.png">
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+    
+  </div>
+  
+  <div class="footer">
+    <p>&nbsp;</p>
+  <!-- end .footer --></div>
+<!-- end .container --></div>
+</body>
+</html>

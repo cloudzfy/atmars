@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/login"
+    android:orientation="vertical" 
+    android:id="@+id/homepage">
+	<RelativeLayout 
+	    android:id="@+id/messagepart"
+	    android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	>
+
+	    <EditText
+	        android:id="@+id/editmessage"
+	        android:layout_width="250dp"
+	        android:layout_height="wrap_content" 
+	        android:text="What's up today?"/>
+
+	    <Button
+	        android:id="@+id/sendmessage"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_toRightOf="@+id/editmessage"
+	        android:text="@string/send" />
+
+	</RelativeLayout>
+	<FrameLayout 
+	    android:id="@+id/msglistpart"
+	    android:layout_width="fill_parent"
+	    android:layout_height="0dp"
+	    android:layout_weight="1">
+		<ListView 
+	    	android:id="@+id/msglist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawSelectorOnTop="false">
+        </ListView>
+	</FrameLayout>	
+</LinearLayout>

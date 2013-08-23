@@ -1,0 +1,592 @@
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	background:#B0E0FA;
+	background-repeat:repeat-y;
+	margin: 0;
+	padding: 0;
+	color: #000;
+	height:100%;
+}
+
+/* ~~ Element/tag selectors ~~ */
+ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
+	padding-right: 15px;
+	padding-left: 15px; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
+}
+a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+	border: none;	
+}
+
+/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+a:link {
+	color:#414958;
+	text-decoration: underline; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+}
+a:visited {
+	color: #4E5869;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+	text-decoration: none;
+}
+
+/* ~~ this container surrounds all other divs giving them their percentage-based width ~~ */
+.container {
+	height:auto;
+	background:url(../homepage-img/bodybg.png);
+	background-repeat: no-repeat;
+    background-position: center 0;
+	margin: 0 auto; 
+	/* the auto value on the sides, coupled with the width, centers the layout. It is not needed if you set the .container's width to 100%. */
+}
+
+
+.container .header{
+	background-image:url(../homepage-img/globalheaderbg.png);
+	background-repeat:repeat-x;
+}
+
+.header{
+	z-index: 110;
+	height: 35px;
+	width: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+}
+
+.header .nav{
+	width: 950px;
+	height:35px;
+	margin:auto;
+	position: relative;
+	display: block;
+}
+
+.header .logo{
+	width: 100px;
+	height: 34px;
+	position: absolute;
+	margin: 0 0 0 10px;
+	left: 0;
+}
+
+.header .list {
+	float: left;
+	display:block;
+	margin: 0px 0 0px 160px;
+}
+
+.header .right{
+	float: right;
+	display:block;
+	margin:0 0px 0 0;
+}
+
+.header .list li {
+	display:inline-block;
+	height:100%;
+	width:100px;
+}
+
+.header .right li{
+	padding: 0 7px 0 5px;
+	display:inline-block;
+	height:100%;
+}
+
+li{
+	list-style:none;
+}
+
+.gbgt {
+	height:28px;
+	cursor: pointer;
+	display: block;
+	text-decoration: none !important;
+	font-size:18px;
+	padding-top:6px;
+}
+
+.header a:hover{
+	background:#4380a2;
+}
+
+/* ~~ This is the layout information. ~~ 
+
+1) Padding is only placed on the top and/or bottom of the div. The elements within this div have padding on their sides. This saves you from any "box model math". Keep in mind, if you add any side padding or border to the div itself, it will be added to the width you define to create the *total* width. You may also choose to remove the padding on the element in the div and place a second div within it with no width and the padding necessary for your design.
+
+*/
+.content {
+	padding: 50px 0 0 0;
+	width:840px;
+	margin:0 auto;
+	height:auto;
+}
+
+
+.content .conl{
+	float:left;
+	overflow:hidden;
+	background:#fff;
+	width:600px;
+	display:block;
+}
+
+.content .conl.input {
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	margin: 7px 7px 7px 7px;
+	box-shadow: inset 1px 1px 4px 0 rgba(220,220,220,1);
+	padding: 5px;
+	background: white;
+	position: relative;
+}
+
+.content .conr{
+	float:right;
+	overflow:hidden;
+	width:240px;
+	background-color:rgba(255, 255, 255, 0.5);
+	display:block;
+}
+
+.person_info{
+	margin:30px auto 0 auto;
+	padding-left:10px;
+	height:60px;
+}
+
+.person_info dt{
+	float:left;
+}
+
+.person_info dd{
+	margin-left:60px;
+	opacity:0.7;
+}
+
+.person_info .name{
+	text-decoration: none !important;
+}
+
+.attention{
+	margin-top:0;
+	padding-left:10xp;
+	height:50px;
+	opacity:0.7;
+}
+
+.attention ul { 
+	padding: 0 15px 15px 8px; 
+}
+
+.attention li {
+	float: left;
+	margin: 0 3px 0 0;
+	padding: 0 3px 0 3px;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color:#4380a2;
+}
+
+.attention a:hover{
+	color:#4380a2;
+}
+
+.attention li strong {
+	display: block;
+	font-size: 16px;
+	margin: 0;
+	font-weight: 700;
+}
+
+.attention li span{
+	font-size:9px;
+}
+/* ~~ This grouped selector gives the lists in the .content area space ~~ */
+
+
+
+/* ~~ miscellaneous float/clear classes ~~ */
+.fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the overflow:hidden on the .container is removed */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+#publish_emotion{
+	float:left;
+	width:200px;
+	height:140px;
+	display:none;
+	z-index:100;
+	position:absolute;
+	background:#FFF;
+	border:1px solid #999;
+	border-radius:5px;
+	box-shadow:0 1px 3px rgba(0,0,0,0.35);
+}
+#publish_text{
+	height:100px;
+	width:535px;
+	position:relative;
+	margin-left:15px;
+	margin-top:8px;
+	border-radius:6px;
+	border:1px solid #CCC;
+	box-shadow:0 1px 3px rgba(0,0,0,0.25);
+	resize:none;
+	font-size:19px;
+	font-family: HelveticaNeue, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+#publish_image{
+	float:left;
+	display:none;
+	z-index:100;
+	position:absolute;
+	background:#FFF;
+	border:1px solid #999;
+	border-radius:5px;
+	box-shadow:0 1px 3px rgba(0,0,0,0.35);
+}
+
+#publish_image_close{
+	background-color:#FFFFFF;
+	width:20px;
+	height:20px;
+	right:2px;
+	margin-top:2px;
+	float:right;
+}
+#preview_image{
+	padding:5px 5px 5px 5px;
+}
+
+#publish_location{
+	float:left;
+	width:220px;
+	height:240px;
+	display:none;
+	z-index:100;
+	position:absolute;
+	background:#FFF;
+	border:1px solid #999;
+	border-radius:5px;
+	box-shadow:0 1px 3px rgba(0,0,0,0.35);
+}
+#submit{
+	background:#80c50c;
+	width:130px;
+	height:34px;
+	border-radius:8px;
+	border:0;
+	box-shadow:0 1px 3px rgba(0,0,0,0.7);
+	font-size:25px;
+	color:#FFFFFF;
+	margin-right:30px;
+	margin-top:8px;
+}
+#submit:active{
+	color:#CCCCCC;
+	margin-right:29px;
+	margin-top:9px;
+}
+
+#mainlist{
+	margin-top:70px;
+	padding-left:12px;
+	padding-right:12px;
+}
+
+.feed_list{
+	padding: 0 0 15px 0;
+	margin: 0 0 17px;
+	zoom: 1;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color:#CCC;
+	float:left;
+	width:100%;
+}
+
+.face {
+	float: left;
+	display: inline;
+	width: 50px;
+	padding: 3px 0 6px;
+}
+.flcontent {
+	font-size: 14px;
+	margin: 0 0 0 50px;
+	line-height: 22px;
+	word-wrap:break-word;
+	overflow:hidden;
+}
+
+.fltext{
+	padding-bottom:12px;
+	margin:0;
+	word-wrap:break-word;
+	overflow:hidden;
+}
+
+.fltime{
+	padding-top:3px;
+	margin:0;
+	font-size:14px;
+}
+
+.feed_list .fltime span {
+	float: right;
+	display: inline;
+}
+
+.feed_list .fltime span a:link{
+	text-decoration:none;
+}
+.feed_list .fltime span a:hover{
+	text-decoration:underline;
+}
+.feed_list .fltime span W_vline{
+	margin: 0 5px;
+}
+#forward_div{
+	width: 442px;
+	height: 290px;
+	background:#FFFFFF;
+	opacity:1;
+	box-shadow:0 1px 3px rgba(0,0,0,0.7);
+	border-radius:3px;
+	display:none;
+	z-index:140;
+	float:left;
+	position:absolute;
+}
+#back_div{
+	background-color:#666;
+	float:left;
+	z-index:120;
+	opacity:.3;
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	display:none;
+}
+.forward_text{
+	width:383px;
+	height:80px;
+	border-radius:6px;
+	border:1px solid #CCC;
+	box-shadow:0 1px 3px rgba(0,0,0,0.25);
+	resize:none;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.forward_button{
+	background:#80c50c;
+	width:120px;
+	height:27px;
+	border-radius:8px;
+	border:0;
+	box-shadow:0 1px 3px rgba(0,0,0,0.7);
+	font-size:20px;
+	color:#FFFFFF;
+	margin-top:8px;
+	margin-right:0px;
+}
+.forward_button:active{
+	color:#999999;
+	margin-right:-1px;
+	margin-top:9px;
+}
+#comment_div{
+	width: 442px;
+	height: 290px;
+	background:#FFFFFF;
+	opacity:1;
+	box-shadow:0 1px 3px rgba(0,0,0,0.7);
+	border-radius:3px;
+	display:none;
+	z-index:140;
+	float:left;
+	position:absolute;
+}
+.comment_text{
+	width:383px;
+	height:80px;
+	border-radius:6px;
+	border:1px solid #CCC;
+	box-shadow:0 1px 3px rgba(0,0,0,0.25);
+	resize:none;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.comment_button{
+	background:#80c50c;
+	width:120px;
+	height:27px;
+	border-radius:8px;
+	border:0;
+	box-shadow:0 1px 3px rgba(0,0,0,0.7);
+	font-size:20px;
+	color:#FFFFFF;
+	margin-top:8px;
+	margin-right:0px;
+}
+.comment_button:active{
+	color:#999999;
+	margin-right:-1px;
+	margin-top:9px;
+}
+.author_name, .author_name:link, .author_name:visited, .author_name:active{
+	color:#0066FF;
+	font-size:16px;
+	text-decoration:none;
+}
+.author_name:hover{
+	color:#0066FF;
+	font-size:16px;
+	text-decoration:underline;
+}
+.previous_div{
+	width:450px;
+	background-color:#E3FED3;
+	border-radius:5px;
+	box-shadow:0 1px 3px rgba(0,0,0,0.45);
+	margin:15px 15px 15px 15px;
+	padding:10px 10px 10px 10px;
+	font-size:16px;
+}
+.loading_div{
+	float:left;
+	border:1px;
+	width:300px;
+	height:30px;
+	margin-left:30px;
+	margin-top:15px;
+	margin-bottom:15px;
+	padding-left:230px;
+	padding-top:10px;
+	font-size:16px;
+	background-color:#FFFFFF;
+	border-radius:5px;
+	box-shadow:0 1px 3px rgba(0,0,0,0.45);
+}
+
+.commentlist{
+	border:1px solid #CCC;
+	width:87%;
+	margin-left:20px;
+	padding: 8px 10px 2px 10px;
+	border-radius:2px;
+	background-color:#FFFFFF;
+	margin-top:8px;
+	margin-bottom:5px;
+	display:none;
+}
+.commentlist .commentdl_input{
+	padding-top:10px;
+	padding-bottom:20px;
+	padding-left:5px;
+	padding-right:10px;
+	clear:right;
+}
+.commentlist .commentdl_list{
+	border-top-width: 1px;
+	border-top-style: dotted;
+	border-top-color:#CCC;
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:5px;
+	clear:left;
+}
+.commentlist .commentdt{
+	float:left;
+	display: inline;
+	width: 30px;
+	padding: 3px 0 6px;
+}
+.commentlist .commentdd {
+	font-size: 13px;
+	line-height: 22px;
+	margin-left:40px;
+	margin-bottom:5px;
+	padding-right:5px;
+	word-wrap:break-word;
+	overflow:hidden;
+}
+#comment_submit{
+	font-size:12px;
+	word-wrap:break-word;
+	line-height:18px;
+	overflow:hidden;
+	outline:none;
+	height:22px;
+	color:#595959;
+	resize:none;
+	border: 1px solid #C6C6C6;
+	width:100%;
+	margin-right:10px;
+	padding-left:5px;
+	padding-right:5px;
+}
+.comment_button{
+	background:#80c50c;
+	width:73px;
+	height:22px;
+	border-radius:3px;
+	border:0;
+	box-shadow:0 1px 3px rgba(0,0,0,0.7);
+	font-size:12px;
+	color:#FFFFFF;
+	margin-top:2px;
+	margin-right:0px;
+	float:right;
+}
+.loading_comment_div{
+	border:1px;
+	height:40px;
+	margin-left:30px;
+	margin-right:30px;
+	vertical-align:central;
+	text-align:center;
+	font-size:12px;
+	background-color:#FFFFFF;
+	border-radius:2px;
+	border:1px solid #CCC;
+	width:87%;
+}
+.author_name_comment, .author_name_comment:link, .author_name_comment:visited, .author_name_comment:active{
+	color:#0066FF;
+	font-size:12px;
+	text-decoration:none;
+}
+.author_name_comment:hover{
+	color:#0066FF;
+	font-size:12px;
+	text-decoration:underline;
+}

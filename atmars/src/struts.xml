@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="mars-default" extends="json-default" namespace="/">
+		<interceptors>
+			<interceptor name="loginAuth"
+				class="org.atmars.interceptor.AuthorizationInterceptor" />
+			<interceptor-stack name="completeStackWithLoginAuth">
+				<interceptor-ref name="loginAuth" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="completeStackWithLoginAuth" />
+		<global-results>
+			<result name="login" type="redirectAction">showLoginPage</result>
+		</global-results>
+	</package>
+	<package name="default" extends="mars-default" namespace="/">
+		<action name="myFollowers" class="org.atmars.action.UserDetailAction"
+			method="myFollowers">
+			<result name="success">
+				followers.jsp
+			</result>
+		</action>
+		<action name="search" class="org.atmars.action.UserDetailAction"
+			method="search">
+			<result name="success">
+				search.jsp
+			</result>
+		</action>
+
+		<action name="myFollowings" class="org.atmars.action.UserDetailAction"
+			method="myFollowings">
+			<result name="success">
+				following.jsp
+			</result>
+		</action>
+
+
+
+
+
+		<!-- home page or publish or forward message -->
+		<action name="publish" class="org.atmars.action.SendMessageAction">
+			<result name="success" type="json">
+				<param name="excludeNullProperties">true</param>
+			</result>
+		</action>
+
+		<action name="forward" class="org.atmars.action.SendMessageAction">
+			<result name="success" type="json">
+				<param name="excludeNullProperties">true</param>
+			</result>
+		</action>
+		<action name="homepage" class="org.atmars.action.ShowJspPagesAction"
+			method="ShowHomePage">
+			<result name="success">homepage.jsp</result>
+		</action>
+		
+		<!-- Message action -->
+
+
+		<action name="getMyMessages" class="org.atmars.action.GetMyMessageAction">
+			<result name="success" type="json">
+				<param name="excludeProperties">
+					oldest_message_id
+				</param>
+				<param name="excludeNullProperties">true</param>
+			</result>
+		</action>
+
+		
+
+		<action name="sendComment" class="org.atmars.action.SendCommentAction">
+			<result name="success" type="json">
+				<param name="excludeProperties">
+					messageId,
+					commentString
+				</param>
+				<param name="excludeNullProperties">true</param>
+			</result>
+		</action>
+
+		<action name="getComment" class="org.atmars.action.GetCommentAction">
+			<result name="success" type="json">
+				<param name="excludeProperties">
+					messageId,
+					cursor
+				</param>
+				<param name="excludeNullProperties">true</param>
+			</result>
+		</action>
+
+		
+
+		<!-- get google position -->
+
+		<action name="googlePosition" class="org.atmars.action.GooglePosition">
+			<result name="success" type="json">
+			</result>
+		</action>
+
+		<!-- register check -->
+		
+		<action name="addFollow" class="org.atmars.action.AddFollow">
+			<result name="success" type="json">
+			</result>
+		</action>
+	</package>
+	<package name="default2" extends="json-default" namespace="/">
+		<action name="showLoginPage" class="org.atmars.action.UserAction" method="execute_showLoginPage">
+			<result name="success">login.jsp</result>
+		</action>
+		<action name="performRegister" class="org.atmars.action.UserAction"
+			method="performRegister">
+			<result name="wait_confirm">wait_confirm.jsp</result>
+		</action>
+
+		<action name="performLogin" class="org.atmars.action.UserAction"
+			method="performLogin">
+			<result name="login_success" type="redirectAction">homepage</result>
+			<result name="login_fail">login.jsp</result>
+		</action>
+		<action name="logout" class="org.atmars.action.LogoutAction">
+			<result name="success" type="redirectAction">showLoginPage</result>
+		</action>
+		<action name="init_weiboQiang" class="org.atmars.action.GetMessageAction"
+			method="weiboQiang">
+			<result name="success" type="json">
+				<param name="excludeProperties">
+					oldest_message_id,
+					myMessages,
+					currentNewestMessageId,
+					newestMessage_Now
+				</param>
+				<param name="excludeNullProperties">true</param>
+			</result>
+		</action>
+		<action name="getNewestMessage" class="org.atmars.action.GetMessageAction"
+			method="execute_getNewestMessage">
+			<result name="success" type="json">
+				<param name="excludeProperties">
+					oldest_message_id,
+					myMessages,
+					new_Messages,
+					currentNewestMessageId
+				</param>
+				<param name="excludeNullProperties">true</param>
+			</result>
+		</action>
+		<action name="checkEmail" class="org.atmars.action.CheckEmailAction">
+				<result name="confirm_success">confirm_success.jsp</result>
+				<result name="confirm_fail">checkMail_fail.jsp</result>
+		</action>
+		<action name="email_occupied" class="org.atmars.action.RegisterCheckAction"
+			method="email_occupied">
+			<result name="success" type="json">
+				<param name="includeProperties">
+					occupied
+				</param>
+			</result>
+		</action>
+		<action name="nickname_occupied" class="org.atmars.action.RegisterCheckAction"
+			method="nickname_occupied">
+			<result name="success" type="json">
+				<param name="includeProperties">
+					occupied
+				</param>
+			</result>
+		</action>
+		<action name="getOriginalMessages" class="org.atmars.action.GetOriginalMessages">
+			<result name="success" type="json">
+				<param name="excludeNullProperties">true</param>
+			</result>
+			<result name="error">get_my_Message_error.jsp</result>
+		</action>
+		<action name="userpage" class="org.atmars.action.ShowJspPagesAction" method="ShowUserPage">
+			<result name="success">userpage.jsp</result>
+		</action>
+		<action name="MobileGetMyMessages" class="org.atmars.action.MobileGetMyMessagesAction">
+			<result name="success" type="json">
+			<param name="excludeNullProperties">true</param>
+			</result>
+		</action>
+		<action name="MobileSendMessage" class="org.atmars.action.MobileSendMessageAction">
+			<result name="success" type="json">
+				<param name="excludeProperties">
+					userId,
+					forwardId,
+					ticket,
+					text
+				</param>
+				<param name="excludeNullProperties">true</param>
+			</result>
+		</action>
+		<action name="MobileLogin" class="org.atmars.action.MobileLoginAction">
+			<result name="success" type="json">
+			<param name="excludeNullProperties">true</param>
+			</result>
+		</action>
+	</package>
+</struts>
