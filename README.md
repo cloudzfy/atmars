@@ -4,7 +4,7 @@ Copyright (C) 2013 Cloudzfy. All Rights Reserved.
 
 =======================================================
 
-This project is an open source project that focuses on the implementation of a Micro Blog called AtMars. Using Struts, Spring and Hibernate Architecture and HTML5 page render technology.
+> This project is an open source project that focuses on the implementation of a Micro Blog called AtMars. Using Struts, Spring and Hibernate Architecture and HTML5 page render technology.
 
 ### Introduction
 This is an open source implementation of micro blog. It can also be named **@Mars**, which is a symbol of micro blog. Mars, as the fourth planet in the Solar System, is the first planet that human begin to study and research except earth. @Mars, means that the user group of the micro blog is focus on the foresight and pioneer of some new technology and design idea.
