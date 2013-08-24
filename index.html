@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Atmars by cloudzfy</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Atmars</h1>
+          <h2>An Implementation of a Micro Blog</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/cloudzfy/atmars/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/cloudzfy/atmars/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/cloudzfy/atmars" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a name="welcome-to-atmars-micro-blog" class="anchor" href="#welcome-to-atmars-micro-blog"><span class="octicon octicon-link"></span></a>Welcome to AtMars Micro Blog</h1>
+
+<p>This project is an open source project that focuses on the implementation of a Micro Blog called AtMars. Using Struts, Spring and Hibernate Architecture and HTML5 page render technology.</p>
+
+<h3>
+<a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a>Introduction</h3>
+
+<p>This is an open source implementation of micro blog. It can also be named <strong><a href="https://github.com/Mars" class="user-mention">@Mars</a></strong>, which is a symbol of micro blog. Mars, as the fourth planet in the Solar System, is the first planet that human begin to study and research except earth. <a href="https://github.com/Mars" class="user-mention">@Mars</a>, means that the user group of the micro blog is focus on the foresight and pioneer of some new technology and design idea.</p>
+
+<h3>
+<a name="functions" class="anchor" href="#functions"><span class="octicon octicon-link"></span></a>Functions</h3>
+
+<p>AtMars, as a implementation of micro blog, has several functions as following:</p>
+
+<ul>
+<li>Standard Publish of micro blog</li>
+<li>Forward and Comment submission of micro blog</li>
+<li>Followers and Followings function</li>
+<li>Face emotion of micro blog</li>
+<li>Photo submission of micro blog</li>
+<li>Location of HTML5 Navigator</li>
+<li>Mail Validation</li>
+</ul><h3>
+<a name="system-topology" class="anchor" href="#system-topology"><span class="octicon octicon-link"></span></a>System Topology</h3>
+
+<p>The system contains <strong>proxy servers</strong>, <strong>web servers</strong> and <strong>back-end servers</strong>. Users can not only use PC client but also use mobile device, such as PDA, cellphones, to visit <a href="https://github.com/Mars" class="user-mention">@Mars</a> Micro Blog.</p>
+
+<p>When a user visit the website of <a href="https://github.com/Mars" class="user-mention">@Mars</a> Micro Blog, the <strong>proxy server</strong> is in use of load balance to balance the load of two or more <strong>web servers</strong>. Each of web server will deal with the sessions assigned for it. The data sharing server will be used in individual servers, including picture server, mail server and database server. <strong>Picture server</strong> is responsible for storing the pictures uploaded by users. <strong>Mail server</strong> is responsible for sending authentication e-mail to new users. <strong>Database server</strong> is responsible for storing structural data in relational tables.</p>
+
+<p><img src="https://raw.github.com/wiki/cloudzfy/atmars/images/topology.png" alt="Topology"></p>
+
+<h3>
+<a name="system-architecture" class="anchor" href="#system-architecture"><span class="octicon octicon-link"></span></a>System Architecture</h3>
+
+<p>The architecture of the system can be separated into three parts: <strong>UI Layer</strong>, <strong>SSH Layer</strong> and <strong>DB Layer</strong>.</p>
+
+<ul>
+<li><p><strong>UI Layer</strong>, means User Interface Layer, is implemented by Java Server Pages (JSP). Using Hypertext Markup Language (HTML) as the page-render technology, we choose HTML5 as the main page development standard. In addition, we use Cascading Style Sheets version 3 (CSS3) to decorate the pages and JavaScript to control the page functions. Asynchronous JavaScript and XML (AJAX) is used to deal with the communication between client and server.</p></li>
+<li><p><strong>SSH Layer</strong>, means the Layer of Struts, Spring and Hibernate. It is the integration of Open Source Architecture. Struts is responsible for the MVC Layer. Spring is responsible for the Service Layer. Hibernate is responsible for the ORM Mapping.</p></li>
+<li><p><strong>DB Layer</strong>, means Database Layer. MySQL is used as the database for this project to store structural data.</p></li>
+</ul><p><img src="https://raw.github.com/wiki/cloudzfy/atmars/images/architecture.png" alt="Architecture"></p>
+
+<h3>
+<a name="third-party-technology" class="anchor" href="#third-party-technology"><span class="octicon octicon-link"></span></a>Third-party Technology</h3>
+
+<ul>
+<li>JavaMail API 1.4.5</li>
+<li>Jasypt 1.9.0</li>
+<li>ActiveMQ 5.6.0</li>
+<li>Java Message Service (JMS)</li>
+<li>Hypertext Markup Language Version 5 (HTML5)</li>
+<li>Cascading Style Sheets Version 3 (CSS3)</li>
+<li>JQuery 1.7.2</li>
+<li>Asynchronous JavaScript and XML (AJAX)</li>
+<li>JavaScript Object Notiation (JSON)</li>
+<li>Squid 3.1.20</li>
+<li>Android 2.3.3</li>
+<li>Struts Model-View-Controller (Struts MVC) 2</li>
+<li>Spring Inversion of Control (Spring IoC) 3.0</li>
+<li>Hibernate Object/Relation Mapping (Hibernate ORM) 3.3</li>
+<li>MySQL 5.5</li>
+</ul>
+        </section>
+
+        <footer>
+          Atmars is maintained by <a href="https://github.com/cloudzfy">cloudzfy</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
