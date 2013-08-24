@@ -25,6 +25,8 @@ The system contains **proxy servers**, **web servers** and **back-end servers**.
 
 When a user visit the website of @Mars Micro Blog, the **proxy server** is in use of load balance to balance the load of two or more **web servers**. Each of web server will deal with the sessions assigned for it. The data sharing server will be used in individual servers, including picture server, mail server and database server. **Picture server** is responsible for storing the pictures uploaded by users. **Mail server** is responsible for sending authentication e-mail to new users. **Database server** is responsible for storing structural data in relational tables.
 
+![Topology](https://raw.github.com/wiki/cloudzfy/atmars/images/topology.png)
+
 ### System Architecture
 The architecture of the system can be separated into three parts: **UI Layer**, **SSH Layer** and **DB Layer**.
 
@@ -33,6 +35,8 @@ The architecture of the system can be separated into three parts: **UI Layer**, 
 * **SSH Layer**, means the Layer of Struts, Spring and Hibernate. It is the integration of Open Source Architecture. Struts is responsible for the MVC Layer. Spring is responsible for the Service Layer. Hibernate is responsible for the ORM Mapping.
 
 * **DB Layer**, means Database Layer. MySQL is used as the database for this project to store structural data.
+
+![Architecture](https://raw.github.com/wiki/cloudzfy/atmars/images/architecture.png)
 
 ### Third-party Technology
 * JavaMail API 1.4.5
