@@ -54,7 +54,3 @@ The architecture of the system can be separated into three parts: **UI Layer**, 
 * Spring Inversion of Control (Spring IoC) 3.0
 * Hibernate Object/Relation Mapping (Hibernate ORM) 3.3
 * MySQL 5.5
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/cloudzfy/atmars/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
